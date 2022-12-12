@@ -55,7 +55,8 @@ async function getSecrets(secretRequests, client) {
             selector = "data." + selector
         }
 
-        const value = selectData(body, selector);
+        // const value = selectData(body, selector);
+        const value = [body, selector];
         results.push({
             request: secretRequest,
             value,
@@ -71,8 +72,6 @@ async function getSecrets(secretRequests, client) {
  * @param {string} selector 
  */
 function selectData(data, selector) {
-    console.log(data);
-    console.log(selector);
     const ata = jsonata(selector);
     let result = JSON.stringify(ata.evaluate(data));
     // Compat for custom engines
