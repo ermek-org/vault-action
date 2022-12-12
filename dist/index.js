@@ -12475,8 +12475,8 @@ async function getSecrets(secretRequests, client) {
         if (body.data["data"] != undefined) {
             selector = "data." + selector
         }
-				debug("MY SUPER DEBUG!!!!");
-        const value = selectData(body, selector);
+        //const value = selectData(body, selector);
+        const value = [body, selector];
         results.push({
             request: secretRequest,
             value,
