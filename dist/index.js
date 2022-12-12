@@ -17191,7 +17191,6 @@ async function exportSecrets() {
     });
 
     const results = await getSecrets(requests, client);
-    core.debug(results);
 
     for (const result of results) {
         const { value, request, cachedResponse } = result;
