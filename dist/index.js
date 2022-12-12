@@ -12475,8 +12475,7 @@ async function getSecrets(secretRequests, client) {
         if (body.data["data"] != undefined) {
             selector = "data." + selector
         }
-        //const value = selectData(body, selector);
-        const value = [body, selector];
+        const value = selectData(body, selector);
         results.push({
             request: secretRequest,
             value,
@@ -17192,6 +17191,7 @@ async function exportSecrets() {
     });
 
     const results = await getSecrets(requests, client);
+    core.debug(requests);
 
     for (const result of results) {
         const { value, request, cachedResponse } = result;
