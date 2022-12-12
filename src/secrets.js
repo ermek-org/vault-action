@@ -55,8 +55,8 @@ async function getSecrets(secretRequests, client) {
             selector = "data." + selector
         }
 
-        const value = body;
-        // const value = selectData(body, selector);
+        const value = selectData(body, selector);
+        throw Error(`testing "${path}"`);
         results.push({
             request: secretRequest,
             value,
